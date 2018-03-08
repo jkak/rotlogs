@@ -20,6 +20,8 @@ const (
 	InfoLevel = logrus.InfoLevel
 	// DebugLevel debug
 	DebugLevel = logrus.DebugLevel
+
+	fmtStr = "2006-01-02 15:04:05"
 )
 
 var (

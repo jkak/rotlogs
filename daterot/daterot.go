@@ -53,25 +53,28 @@ func Rotate() (*logrus.Logger, error) {
 // USR2 to turn - up log level from Debug to Panic
 func sigModLoglevel(sigCh chan os.Signal, logger *logrus.Logger) {
 	for {
-		fmtStr := "2006-01-02 15:04:05"
 		select {
 		case sig := <-sigCh:
-			if sig == syscall.SIGUSR1 {
-				level := logger.Level
-				if level != PanicLevel {
-					logger.SetLevel(level - 1)
-				}
-				logrus.Println(time.Now().Format(fmtStr), "Raise log level to:", logger.Level)
-
-			} else if sig == syscall.SIGUSR2 {
-				level := logger.Level
-				if level != DebugLevel {
-					logger.SetLevel(level + 1)
-				}
-				logrus.Println(time.Now().Format(fmtStr), "Reduce log level to:", logger.Level)
-			} else {
-				logrus.Println(time.Now().Format(fmtStr), "receive unknown signal:", sig)
-			}
+			modBySig(sig, logger)
 		}
+	}
+}
+
+func modBySig(sig os.Signal, logger *logrus.Logger) {
+	if sig == syscall.SIGUSR1 {
+		level := logger.Level
+		if level != PanicLevel {
+			logger.SetLevel(level - 1)
+		}
+		logrus.Println(time.Now().Format(fmtStr), "Raise log level to:", logger.Level)
+
+	} else if sig == syscall.SIGUSR2 {
+		level := logger.Level
+		if level != DebugLevel {
+			logger.SetLevel(level + 1)
+		}
+		logrus.Println(time.Now().Format(fmtStr), "Reduce log level to:", logger.Level)
+	} else {
+		logrus.Println(time.Now().Format(fmtStr), "receive unknown signal:", sig)
 	}
 }
