@@ -3,6 +3,7 @@ package daterot
 import (
 	"os"
 	"os/signal"
+	"path/filepath"
 	"syscall"
 	"time"
 
@@ -16,6 +17,13 @@ func Rotate() (*logrus.Logger, error) {
 	// if !strings.HasPrefix(BaseFileName, "/") {
 	// 	logrus.Fatal("BaseFileName should use absolute path!\n")
 	// }
+	// check and mkdir dest log path
+	baseName := filepath.Dir(BaseFileName)
+	if _, err := os.Stat(baseName); os.IsNotExist(err) {
+		os.Mkdir(baseName, 0755)
+		logrus.Println(time.Now().Format(fmtStr), "mkdir log file path:", baseName)
+	}
+
 	// rotate writer
 	rotateLog, err := rotatelogs.New(
 		BaseFileName+".%Y%m%d-%H%M",
