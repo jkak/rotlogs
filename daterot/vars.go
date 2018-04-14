@@ -24,9 +24,21 @@ const (
 	fmtStr = "2006-01-02 15:04:05"
 )
 
+// RotLogger used for user to define a global logger
+// because of logrus.Logger is struct,
+// `Logger logrus.Logger` var is not a type
+// encapsulute logrus.Logger as a struct for daterot package
+type RotLogger struct {
+	Logger *logrus.Logger
+}
+
 var (
+	// LoggerPtr is struct for user
+	//LoggerPtr = new(RotLogger)
+	LoggerPtr = RotLogger{}
+
 	// BaseFileName : base file name of log
-	BaseFileName = "./log/access.log"
+	BaseFileName = "./logs/access.log"
 	// BaseLinkName : base link file name of log
 	BaseLinkName = ""
 	// MaxAgeDays : max days before log file to be purged in file system

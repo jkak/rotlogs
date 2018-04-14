@@ -7,7 +7,7 @@ import (
 )
 
 func TestRotate(t *testing.T) {
-	BaseFileName = "log/access.log"
+	BaseFileName = "logs/access.log"
 	RotateHour = 1
 	// JSONFormat = false
 	LogLevel = DebugLevel
