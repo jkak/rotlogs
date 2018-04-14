@@ -2,26 +2,26 @@ package main
 
 import (
 	"log"
-	"time"
 
-	"github.com/jungle85gopy/rotlogs/daterot"
+	rotlog "github.com/jungle85gopy/rotlogs/daterot"
+)
+
+var (
+	logger = rotlog.LoggerPtr.Logger
 )
 
 func main() {
-	daterot.BaseFileName = "log/access.log"
-	daterot.BaseLinkName = daterot.BaseFileName
-	daterot.RotateHour = 1
-	// daterot.JSONFormat = false
-	daterot.LogLevel = daterot.DebugLevel
-	logger, err := daterot.Rotate()
+	rotlog.BaseFileName = "logs/access.log"
+	rotlog.BaseLinkName = rotlog.BaseFileName
+	rotlog.RotateHour = 1
+	// rotlog.JSONFormat = false
+	rotlog.LogLevel = rotlog.DebugLevel
+	var err error
+	logger, err = rotlog.Rotate()
 	if err != nil {
 		log.Fatalf("create rotate file error:%s\n", err)
 	}
-	for {
-		logger.Debug("it is a debug info!")
-		logger.Info("it is info level log")
-		logger.Warn("it is warning level log")
-		logger.Error("it is warning level log")
-		time.Sleep(500 * time.Millisecond)
-	}
+
+	// defined in test.go for test of use logger
+	testRot()
 }
