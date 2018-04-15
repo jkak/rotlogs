@@ -35,6 +35,8 @@ LogLevel		// 日志级别，默认为DebugLevel
 JSONFormat		// 日志格式，json或text。默认为true，使用json格式。
 
 EnableDynamic	// 允许动态调整日志级别。默认true
+
+LoggerPtr // 提供一个日志句柄变量，可以用户的main之外定义，在其他文件中统一使用
 ```
 
 #### 使用示例
