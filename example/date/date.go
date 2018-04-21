@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	rotlog "github.com/jungle85gopy/rotlogs/daterot"
+	rotlog "github.com/jgkg/rotlogs/daterot"
 )
 
 var (
