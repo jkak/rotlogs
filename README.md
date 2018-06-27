@@ -68,13 +68,13 @@ kill -s USR1|USR2  XX_PID
 
 ```go
 // 相关变量主要用于变量日志的默认行为，所有变量都有默认值
-BaseFileName	// 日志文件名，默认./log/access.log
+BaseFileName	// 日志文件名，默认./logs/access.log
 MaxMegaSize		// 日志文件大小，超过后将轮转，默认100MB
 MaxBackups		// 日志保留份数，默认7个
 MaxAgeDays		// 日志保留天数，默认7天
 Compress		// 日志压缩，默认为true
 LogLevel		// 日志级别，默认为DebugLevel
-JSONFormat		// 日志格式，json或text。默认为true，使用json格式。
+JSONFormat		// 日志格式，json或text。默认为false，使用text格式。
 
 EnableDynamic	// 允许动态调整日志级别。默认true
 ```

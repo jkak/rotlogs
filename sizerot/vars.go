@@ -22,7 +22,7 @@ const (
 
 var (
 	// BaseFileName : base file name of log
-	BaseFileName = "./log/access.log"
+	BaseFileName = "./logs/access.log"
 
 	// MaxMegaSize : the maximum size in megabytes of the log file before it gets rotated
 	MaxMegaSize = 100
@@ -36,7 +36,7 @@ var (
 	LogLevel = DebugLevel
 
 	// EnableDynamic : enable dynamic modify log level by os Signal
-	EnableDynamic = false
-	// JSONFormat : use json format by default, false for text
-	JSONFormat = true
+	EnableDynamic = true
+	// JSONFormat : use text format by default, true for json
+	JSONFormat = false
 )

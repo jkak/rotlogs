@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	sizerot.BaseFileName = "log/access.log"
+	sizerot.BaseFileName = "logs/access.log"
 	sizerot.EnableDynamic = true
 	// sizerot.JSONFormat = false
 	sizerot.LogLevel = sizerot.DebugLevel
