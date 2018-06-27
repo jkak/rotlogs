@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	rotlog "github.com/jgkg/rotlogs/daterot"
+	rotlog "github.com/jkak/rotlogs/daterot"
 )
 
 var (
@@ -12,10 +12,7 @@ var (
 
 func main() {
 	rotlog.BaseFileName = "logs/access.log"
-	rotlog.BaseLinkName = rotlog.BaseFileName
 	rotlog.RotateHour = 1
-	// rotlog.JSONFormat = false
-	rotlog.LogLevel = rotlog.DebugLevel
 	var err error
 	logger, err = rotlog.Rotate()
 	if err != nil {

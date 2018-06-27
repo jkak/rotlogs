@@ -3,7 +3,7 @@ package main
 import (
 	"time"
 
-	"github.com/jgkg/rotlogs/sizerot"
+	"github.com/jkak/rotlogs/sizerot"
 )
 
 func main() {

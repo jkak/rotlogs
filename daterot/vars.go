@@ -40,7 +40,7 @@ var (
 	// BaseFileName : base file name of log
 	BaseFileName = "./logs/access.log"
 	// BaseLinkName : base link file name of log
-	BaseLinkName = ""
+	BaseLinkName = BaseFileName
 	// MaxAgeDays : max days before log file to be purged in file system
 	MaxAgeDays time.Duration = 7
 	// RotateHour : hour for each rotate
@@ -50,6 +50,6 @@ var (
 
 	// EnableDynamic : enable dynamic modify log level by os Signal
 	EnableDynamic = true
-	// JSONFormat : use json format by default, false for text
-	JSONFormat = true
+	// JSONFormat : use text format by default, true for json
+	JSONFormat = false
 )

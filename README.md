@@ -28,15 +28,15 @@ DebugLevel
 ```go
 // 相关变量主要用于变量日志的默认行为，所有变量都有默认值
 BaseFileName	// 日志文件名，默认./log/access.log
-BaseLinkName	// 日志软链名，默认为空，为空时则没有软链
+BaseLinkName	// 日志软链名，默认为BaseFileName，为空时则没有软链
 MaxAgeDays		// 日志保留天数，默认为7天
 RotateHour		// 日志切割间隔，默认24小时
 LogLevel		// 日志级别，默认为DebugLevel
-JSONFormat		// 日志格式，json或text。默认为true，使用json格式。
+JSONFormat		// 日志格式，json或text。默认为false，使用text格式。
 
 EnableDynamic	// 允许动态调整日志级别。默认true
 
-LoggerPtr // 提供一个日志句柄变量，可以用户的main之外定义，在其他文件中统一使用
+LoggerPtr // 提供一个日志句柄变量，可以在用户的main之外定义，在其他文件中统一使用
 ```
 
 #### 使用示例
